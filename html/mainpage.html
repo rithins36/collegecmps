@@ -30,6 +30,7 @@
     <link href="css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
     <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/collegeliststyle.css" rel="stylesheet">
 
     <script src="js/vendor/modernizr-2.8.1.min.js"></script>
     <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -109,28 +110,92 @@
                         </select>
                       </div>
                   
-                      <div class="form-group">
-                        <label for="filter-option">Filter Option:</label>
-                        <select id="filter-option" name="filter-option">
-                          <option value="option1">Placements</option>
-                          <option value="option2">Location</option>
-                          <option value="option3">None</option>
+                      <div class="filter">
+                        <h2>Filter</h2>
+                        <select id="filterDropdown">
+                          <option value="none">None</option>
+                          <option value="placement">Placement</option>
+                          <option value="location">Location</option>
                         </select>
+                        <div id="dynamicContent"></div>
                       </div>
+                     
+                     
+                      <script>
+                      document.getElementById("filterDropdown").addEventListener("change", function() {
+                        var dynamicContent = document.getElementById("dynamicContent");
+                        var selectedOption = this.value;
+                        
+                        dynamicContent.innerHTML = ""; 
+                        
+                        if (selectedOption === "placement") {
+                          dynamicContent.innerHTML = `
+                            <input type="radio" id="radio1" name="placement" />
+                            <label for="radio1">100+</label><br />
+                            <input type="radio" id="radio2" name="placement" />
+                            <label for="radio2">200+</label><br />
+                            <input type="radio" id="radio3" name="placement" />
+                            <label for="radio3">300+</label><br />
+                          `;
+                        } else if (selectedOption === "location") {
+                          dynamicContent.innerHTML = `
+                            <input type="checkbox" id="checkbox1" name="location1" />
+                            <label for="checkbox1">Alappuzha</label><br />
+                            <input type="checkbox" id="checkbox2" name="location2" />
+                            <label for="checkbox2">Ernakulam</label><br />
+                            <input type="checkbox" id="checkbox3" name="location3" />
+                            <label for="checkbox3">Kozhikode</label><br />
+                            <input type="checkbox" id="checkbox4" name="location4" />
+                            <label for="checkbox4">Palakkad</label><br />
+                            <input type="checkbox" id="checkbox5" name="location5" />
+                            <label for="checkbox5">Kollam</label><br />
+                            <input type="checkbox" id="checkbox6" name="location6" />
+                            <label for="checkbox6">Kannur</label><br />
+                            <input type="checkbox" id="checkbox7" name="location7" />
+                            <label for="checkbox7">Kasaragod</label><br />
+                            <input type="checkbox" id="checkbox8" name="location8" />
+                            <label for="checkbox8">Idukki</label><br />
+                            <input type="checkbox" id="checkbox9" name="location9" />
+                            <label for="checkbox9">Kottayam</label><br />
+                            <input type="checkbox" id="checkbox10" name="location10" />
+                            <label for="checkbox10">Thrissur</label><br />
+                            <input type="checkbox" id="checkbox11" name="location11" />
+                            <label for="checkbox11">Pathanamthitta</label><br />
+                            <input type="checkbox" id="checkbox12" name="location12" />
+                            <label for="checkbox12">Malappuram</label><br />
+                            <input type="checkbox" id="checkbox13" name="location13" />
+                            <label for="checkbox13">Wayanad</label><br />
+                            <input type="checkbox" id="checkbox14" name="location14" />
+                            <label for="checkbox14">Thiruvananthapuram</label><br />
+
+                          `;
+                        }
+                      });
+                    </script>
+                      
                   
-                      <div class="form-group">
-                        <label for="course">Course:</label>
-                        <select id="course" name="course">
-                          <option value="course1">Computer Science</option>
-                          <option value="course2">Civil</option>
-                          <option value="course3">Mechanical</option>
-                          <option value="course4">Electrical & Electronics</option>
-                          <option value="course5">Electronics & Communication</option>
-                          <option value="course6">Others</option>
-                        </select>
+                      <div class="courses">
+                        <h2>Courses</h2>
+                        <div class="courselist">
+                        <input type="checkbox" id="course1" name="course1" />
+                        <label for="course1">Mechanical</label><br />
+                        <input type="checkbox" id="course2" name="course2" />
+                        <label for="course2">Civil</label><br />
+                        <input type="checkbox" id="course3" name="course3" />
+                        <label for="course3">Computer Science</label><br />
+                      
+                      
+                        <input type="checkbox" id="course4" name="course4" />
+                        <label for="course4">Electrical and Electronics</label><br />
+                        <input type="checkbox" id="course5" name="course5" />
+                        <label for="course5">Electronics</label><br />
+                        <input type="checkbox" id="course6" name="course6" />
+                        <label for="course6">Instrumentation</label><br />
                       </div>
+                      </div>
+                      
                   
-                      <button type="submit">Submit</button>
+                      <a class="btn btn-primary animated lightSpeedIn" href="collegelist.html">Submit</a>
                     </form>
                   </div>
                   

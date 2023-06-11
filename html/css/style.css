@@ -2556,6 +2556,7 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
     max-width: 400px;
     margin-top: 12px;
     margin-left: 550px;
+    display: flex;
     
   }
   
@@ -2588,4 +2589,61 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
   button[type="submit"]:hover {
     background-color: #45a049;
   }
+
+  .courses {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+    
+  }
+  
+
+  .courselist {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: block;
+    
+  }
+  
+  
+  
+  
+  .courses h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .courses input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .courses label {
+    font-size: 16px;
+  }
+  
+  .filter {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .filter h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .filter select {
+    margin-bottom: 10px;
+  }
+  
+  .filter input[type="radio"],
+  .filter input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
   
