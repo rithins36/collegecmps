@@ -12,6 +12,12 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 app.set('view engine', 'ejs');
 
+// Middleware to disable strict MIME type checking
+app.use((req, res, next) => {
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  next();
+});
+
 // middleware & static files
 app.use(express.static('public'));
 
