@@ -37,11 +37,24 @@ app.get('/collegelist', (req, res) => {
   College.find()
   .then((result) => {
     res.render('collegelist', { colleges: result });
+    console.log(result);
   })
   .catch((err) => {
     console.log(err);
   }
   );
+});
+
+app.get('/colleges/:rank', async function(req, res) {
+  const rank = parseInt(req.params.rank);
+
+  try {
+    const colleges = await College.find({ 'cutOff': { $elemMatch: { branch: 'cs', SM: { $eq: rank } } } }).exec();
+    res.json(colleges);
+  } catch (err) {
+    console.error('Error retrieving colleges:', err);
+    res.status(500).send('Error retrieving colleges');
+  }
 });
 
 app.use((req, res) => {
