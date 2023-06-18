@@ -34,23 +34,45 @@ app.get('/mainpage', (req, res) => {
 
 app.get('/collegelist', (req, res) => {
   // res.render('collegelist');
-  College.find()
-  .then((result) => {
-    res.render('collegelist', { colleges: result });
-    console.log(result);
-  })
-  .catch((err) => {
-    console.log(err);
-  }
-  );
+  // College.find()
+  // .then((result) => {
+  //   res.render('collegelist', { colleges: result });
+  //   console.log(result);
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // }
+  // );
+  res.redirect('/colleges/:branch/:rank/:cat');
 });
 
-app.get('/colleges/:rank', async function(req, res) {
+app.get('/colleges/:branch/:rank/:cat', async function(req, res) {
   const rank = parseInt(req.params.rank);
+  const branch = req.params.branch;
+  const cat = req.params.cat;
 
+  // College.find({ 
+  //   'cutOff.branch': branch,
+  //   'cutOff.category' : cat, 
+  //   'cutOff.lastRank': { $gt: rank }
+  //  })
+  // .then((result) => {
+  //   res.render('collegelist', { colleges: result });
+  //   console.log(result);
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // }
+  // );
   try {
-    const colleges = await College.find({ 'cutOff': { $elemMatch: { branch: 'cs', SM: { $eq: rank } } } }).exec();
-    res.json(colleges);
+    const colleges = await College
+      .find({ 'cutOff.branch': branch,'cutOff.category' : cat, 'cutOff.lastRank': { $gt: rank } })
+      .exec();
+    console.log(rank);
+    console.log(branch);
+    console.log(cat);
+
+    res.render('collegelist',{colleges:colleges});
   } catch (err) {
     console.error('Error retrieving colleges:', err);
     res.status(500).send('Error retrieving colleges');
