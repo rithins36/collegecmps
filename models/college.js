@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const collegeSchema = new Schema({
-    name_: {
+    name: {
         type: String,
         required: true
     },

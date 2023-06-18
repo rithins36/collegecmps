@@ -10,7 +10,7 @@
 
     <title>College Compass</title>
     <!-- Web Fonts -->
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300' rel='stylesheet' type='text/css'>
+	  <link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300' rel='stylesheet' type='text/css'>
     <!-- Flaticon CSS -->
     <link href="fonts/flaticon/flaticon.css" rel="stylesheet">
     <!-- font-awesome CSS -->
@@ -22,8 +22,8 @@
     <link href="css/hippo-off-canvas.css" rel="stylesheet">
     <!-- animate CSS -->
     <link href="css/animate.css" rel="stylesheet">
-	<!-- REVOLUTION BANNER CSS SETTINGS -->
-	<link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
+	  <!-- REVOLUTION BANNER CSS SETTINGS -->
+	  <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -65,15 +65,15 @@
                     </section>
 				</header>
                 <div class="form-container">
-                    <form>
+                    <form action="/collegelist" method="GET">
                       <div class="form-group">
                         <label for="keam-rank">KEAM Rank:</label>
-                        <input type="text" id="keam-rank" name="keam-rank" placeholder="Enter KEAM Rank">
+                        <input type="text" id="keam-rank" name="rank" placeholder="Enter KEAM Rank">
                       </div>
                   
                       <div class="form-group">
-                        <label for="caste">Caste:</label>
-                        <select id="caste" name="caste">
+                        <label for="caste">Category:</label>
+                        <select id="caste" name="category">
                           <option value="general">General</option>
                           <option value="obc">OBC</option>
                           <option value="sc">SC</option>
@@ -110,33 +110,33 @@
                           `;
                         } else if (selectedOption === "location") {
                           dynamicContent.innerHTML = `
-                            <input type="checkbox" id="checkbox1" name="location1" />
+                            <input type="checkbox" id="checkbox1" name="location" />
                             <label for="checkbox1">Alappuzha</label><br />
-                            <input type="checkbox" id="checkbox2" name="location2" />
+                            <input type="checkbox" id="checkbox2" name="location" />
                             <label for="checkbox2">Ernakulam</label><br />
-                            <input type="checkbox" id="checkbox3" name="location3" />
+                            <input type="checkbox" id="checkbox3" name="location" />
                             <label for="checkbox3">Kozhikode</label><br />
-                            <input type="checkbox" id="checkbox4" name="location4" />
+                            <input type="checkbox" id="checkbox4" name="location" />
                             <label for="checkbox4">Palakkad</label><br />
-                            <input type="checkbox" id="checkbox5" name="location5" />
+                            <input type="checkbox" id="checkbox5" name="location" />
                             <label for="checkbox5">Kollam</label><br />
-                            <input type="checkbox" id="checkbox6" name="location6" />
+                            <input type="checkbox" id="checkbox6" name="location" />
                             <label for="checkbox6">Kannur</label><br />
-                            <input type="checkbox" id="checkbox7" name="location7" />
+                            <input type="checkbox" id="checkbox7" name="location" />
                             <label for="checkbox7">Kasaragod</label><br />
-                            <input type="checkbox" id="checkbox8" name="location8" />
+                            <input type="checkbox" id="checkbox8" name="location" />
                             <label for="checkbox8">Idukki</label><br />
-                            <input type="checkbox" id="checkbox9" name="location9" />
+                            <input type="checkbox" id="checkbox9" name="location" />
                             <label for="checkbox9">Kottayam</label><br />
-                            <input type="checkbox" id="checkbox10" name="location10" />
+                            <input type="checkbox" id="checkbox10" name="location" />
                             <label for="checkbox10">Thrissur</label><br />
-                            <input type="checkbox" id="checkbox11" name="location11" />
+                            <input type="checkbox" id="checkbox11" name="location" />
                             <label for="checkbox11">Pathanamthitta</label><br />
-                            <input type="checkbox" id="checkbox12" name="location12" />
+                            <input type="checkbox" id="checkbox12" name="location" />
                             <label for="checkbox12">Malappuram</label><br />
-                            <input type="checkbox" id="checkbox13" name="location13" />
+                            <input type="checkbox" id="checkbox13" name="location" />
                             <label for="checkbox13">Wayanad</label><br />
-                            <input type="checkbox" id="checkbox14" name="location14" />
+                            <input type="checkbox" id="checkbox14" name="location" />
                             <label for="checkbox14">Thiruvananthapuram</label><br />
 
                           `;
@@ -148,25 +148,25 @@
                       <div class="courses">
                         <h2>Courses</h2>
                         <div class="courselist">
-                        <input type="checkbox" id="course1" name="course1" />
+                        <input type="checkbox" id="course1" name="course" value="mech" />
                         <label for="course1">Mechanical</label><br />
-                        <input type="checkbox" id="course2" name="course2" />
+                        <input type="checkbox" id="course2" name="course" value="ce"/>
                         <label for="course2">Civil</label><br />
-                        <input type="checkbox" id="course3" name="course3" />
+                        <input type="checkbox" id="course3" name="course" value="cs"/>
                         <label for="course3">Computer Science</label><br />
                       
                       
-                        <input type="checkbox" id="course4" name="course4" />
+                        <input type="checkbox" id="course4" name="course" value="eee" />
                         <label for="course4">Electrical and Electronics</label><br />
-                        <input type="checkbox" id="course5" name="course5" />
+                        <input type="checkbox" id="course5" name="course" value="ec"/>
                         <label for="course5">Electronics</label><br />
-                        <input type="checkbox" id="course6" name="course6" />
+                        <input type="checkbox" id="course6" name="course" value="ie"/>
                         <label for="course6">Instrumentation</label><br />
                       </div>
                       </div>
                       
                   
-                      <a class="btn btn-primary animated lightSpeedIn" href="/collegelist">Submit</a>
+                      <button class="btn btn-primary animated lightSpeedIn" >Submit</button>
                     </form>
                   </div>
                   
