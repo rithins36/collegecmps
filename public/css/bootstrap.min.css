@@ -3102,7 +3102,8 @@ textarea.input-lg,textarea.form-group-lg .form-control,select[multiple].input-lg
     user-select: none;
     background-image: none;
     border: 1px solid transparent;
-    border-radius: 4px
+    border-radius: 4px;
+    margin-top: 8px;
 }
 
 .btn:focus,.btn:active:focus,.btn.active:focus,.btn.focus,.btn:active.focus,.btn.active.focus {

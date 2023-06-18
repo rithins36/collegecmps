@@ -685,7 +685,7 @@ ADVANTAGES WRAPPER
 HANDOVER WRAPPER
 --------------------------------------------------------------------- */
 .handover-wrapper {
-    background-color: #5d564b;
+    background-color: #fcbb3c;
     color: #fff;
     padding: 60px 0 60px 60px;
 }
@@ -2552,11 +2552,47 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
  * keam rank entering
 /* ---------------------------------------------- */
 
+/* Increase the width of the form */
+form {
+    width: 800px;
+   
+    
+  }
+  
+  /* Increase the width of the filter div */
+  .filter {
+    width: 100%;
+  }
+  
+  /* Increase the width of the courses div */
+  .courses {
+    width: 100%;
+  }
+  
+  /* Align locations with three locations per row */
+  .filter input[type="checkbox"] {
+    display: inline-block;
+    
+  }
+  
+  /* Add some spacing between the checkboxes and labels */
+  .filter input[type="checkbox"] + label {
+    margin-left: 5px;
+  }
+  
+  /* Clear float to start a new row */
+  .filter input[type="checkbox"]:nth-child(3n+1) {
+    clear: left;
+  }
+  
+
+
 .form-container {
-    max-width: 400px;
+    
     margin-top: 12px;
-    margin-left: 550px;
+    
     display: flex;
+    justify-content: center;
     
   }
   
@@ -2605,7 +2641,7 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    display: block;
+    display: flex;
     
   }
   
@@ -2644,6 +2680,55 @@ li.dropdown.menu-animating > .submenu-sub-wrapper {
   .filter input[type="radio"],
   .filter input[type="checkbox"] {
     margin-right: 5px;
+  }
+  
+  #course1{
+    margin-top: -30px;
+  }
+
+  #course2{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+
+  #course3{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+
+  #course4{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+
+  #course5{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+
+  #course6{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+  .loclist{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    
+  }
+  .loclist1{
+    display: flex;  
+  }
+  .btn-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    padding: 6px 13px;
+    ;
+     ;
+
+  }
+  #submitbtn{
+    align-self: center;
   }
   
   
