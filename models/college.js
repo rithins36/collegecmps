@@ -13,15 +13,15 @@ const collegeSchema = new Schema({
         type: Number,
         required:true
     },
-   cutOff: [{ 
-    branch: String,
-    SM: Number, 
-    EZ: Number, 
-    MU: Number, 
-    SC: Number, 
-    ST: Number 
+    cutOff: [{ 
+        branch: String,
+        category: String,
+        rank: Number
     }],
-    
+    placement: {
+        type: Number,
+        required:true
+    },
     link : {
         type: String,
         required:true

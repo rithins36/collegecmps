@@ -995,6 +995,10 @@ FOOTER WRAPPER
     padding: 40px 0;
     background: #2d2f2e;
 }
+.copyright{
+    display: flex;
+    justify-content: center;
+}
 .copyright p{
     margin: 0;
 }
@@ -2717,6 +2721,9 @@ form {
   }
   .loclist1{
     display: flex;  
+  }
+  .loclist1 > label{
+    margin-bottom: 0;
   }
   .btn-container{
     display: flex;

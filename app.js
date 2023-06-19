@@ -27,7 +27,9 @@ app.listen(3000);
 app.get('/', (req, res) => {
     res.render('index');
 });
-
+app.get('/about-us', (req, res) => {
+    res.render('about-us');
+});
 app.get('/mainpage', (req, res) => {
   res.render('mainpage');
 });
@@ -51,30 +53,90 @@ app.get('/login', (req, res) => {
 // });
 
 app.get('/collegelist', async function(req, res) {
-  const rank = req.query.rank;
+  const rank = parseInt(req.query.rank) ;
   const cat = req.query.category;
   const branch = req.query.course;
-  // const branch = req.params.branch;
-  // const cat = req.params.cat;
-
+  const location = req.query.location;
+  let placement = {}
+  if( req.query.placement != undefined) {
+    placement= parseInt(req.query.placement) }
+    else{
+      placement = -1;
+    } 
+  let colleges = {};
   console.log(rank);
   console.log(cat);
   console.log(branch);
-  
-
-
-  // try {
-  //   const colleges = await College
-  //     .find({ 'cutOff.branch': branch,'cutOff.category' : cat, 'cutOff.lastRank': { $gt: rank } })
-  //     .exec();
-
-  //   res.render('collegelist',{colleges:colleges});
-  //   console.log(colleges);
+  console.log(location);
+  console.log(placement);
+  try {
+    if (location != undefined && placement != -1){
+      colleges = await College
+      .find({ $or :[{ 
+        'cutOff.branch': { $in: branch},
+        'cutOff.category' : cat,
+        'cutOff.lastRank': { $gt: rank },
+        'location': { $in : location},
+        'placed': { $lt : placement}
+      }
+    ]})
+      .sort({'ranking' : 1})
+      .exec();
+    }
+    else{
+      if(location != undefined && placement == -1)
+      {colleges = await College
+      .find({ $or :[{
+        'cutOff.branch': { $in: branch},
+        'cutOff.category' : cat,
+        'cutOff.lastRank': { $gt: rank },
+        'location': { $in : location},
+      }
     
-  // } catch (err) {
-  //   console.error('Error retrieving colleges:', err);
-  //   res.status(500).send('Error retrieving colleges');
-  // }
+    ]})
+      .sort({'ranking' : 1})
+      .exec();
+    }
+
+    if(placement != -1 && location == undefined){
+      {colleges = await College
+      .find({ $or :[{
+        'cutOff.branch': { $in: branch},
+        'cutOff.category' : cat,
+        'cutOff.lastRank': { $gt: rank },
+        'placed': { $lt : placement}
+      }
+    
+    ]})
+      .sort({'ranking' : 1})
+      .exec();
+    }
+
+    }
+
+    if(placement == -1 && location == undefined){
+      {colleges = await College
+      .find({ $or :[{
+        'cutOff.branch': { $in: branch},
+        'cutOff.category' : cat,
+        'cutOff.lastRank': { $gt: rank },
+      }
+    
+    ]})
+      .sort({'ranking' : 1})
+      .exec();
+    }
+  }
+}
+   
+
+    res.render('collegelist',{colleges,branches : branch});
+    console.log(colleges);
+    
+  } catch (err) {
+    console.error('Error retrieving colleges:', err);
+    res.status(500).send('Error retrieving colleges');
+  }
 });
 
 app.use((req, res) => {
