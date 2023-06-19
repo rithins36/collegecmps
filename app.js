@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const College = require('./models/college');
+const User = require('./models/user');
 
 
 const app = express();
@@ -21,7 +22,7 @@ app.use((req, res, next) => {
 
 // middleware & static files
 app.use(express.static('public'));
-
+app.use(express.urlencoded({ extended: true }));
 app.listen(3000);
 
 app.get('/', (req, res) => {
@@ -38,19 +39,30 @@ app.get('/login', (req, res) => {
   res.render('login');
 });
 
-// app.get('/collegelist', (req, res) => {
-//   // res.render('collegelist');
-//   // College.find()
-//   // .then((result) => {
-//   //   res.render('collegelist', { colleges: result });
-//   //   console.log(result);
-//   // })
-//   // .catch((err) => {
-//   //   console.log(err);
-//   // }
-//   // );
-//   res.redirect('/colleges/:branch/:rank/:cat');
-// });
+app.get('/contact',(req,res) => {
+  res.render('contact');
+  });
+
+app.post('/signup', (req, res) => {
+  const user = new User(req.body);
+  user.save()
+  .then((result) => {
+    console.log(result);
+    res.redirect('/login');
+
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  User.find()
+  .then((result) => {
+    console.log(result);
+  })
+    .catch((err) => {
+      console.log(err);
+    });
+});
 
 app.get('/collegelist', async function(req, res) {
   const rank = parseInt(req.query.rank) ;
@@ -131,7 +143,7 @@ app.get('/collegelist', async function(req, res) {
    
 
     res.render('collegelist',{colleges,branches : branch});
-    console.log(colleges);
+    // console.log(colleges);
     
   } catch (err) {
     console.error('Error retrieving colleges:', err);

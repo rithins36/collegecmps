@@ -3,15 +3,15 @@ const Schema = mongoose.Schema;
 const collegeSchema = new Schema({
     name: {
         type: String,
-        required: true
+        // required: true
     },
     location: {
         type: String,
-        required:true
+        // required:true
     },
     ranking: {
         type: Number,
-        required:true
+        // required:true
     },
     cutOff: [{ 
         branch: String,
@@ -20,13 +20,34 @@ const collegeSchema = new Schema({
     }],
     placement: {
         type: Number,
-        required:true
+        // required:true
     },
     link : {
         type: String,
-        required:true
+        // required:true
     }
 }, { timestamps: true });
+
+// const userSchema = new Schema({
+//     username: {
+//         type: String,
+//         // required: true
+//     },
+//     emailId: {
+//         type: String,
+//         // required:true
+//     },
+//     password: {
+//         type: String,
+//         // required:true
+//     },
+//     number: {   
+//         type: Number,
+//         // required:true
+//     }
+// }, { timestamps: true });
+
+
 
 const College = mongoose.model('college details', collegeSchema);
 
