@@ -35,10 +35,11 @@ async function main() {
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
+    console.log("connected");
 
-    const phoneNumbers = await collection.distinct('phone_number');
+    const phoneNumbers = await collection.distinct('number');
     for (const phoneNumber of phoneNumbers) {
-      const message = 'Your SMS message content goes here';
+      const message = 'Hi Rahul...sugamano?';
       await sendSMS(phoneNumber, message);
     }
   } catch (error) {

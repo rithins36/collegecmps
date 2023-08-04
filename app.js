@@ -84,23 +84,23 @@ app.get('/collegelist', async function(req, res) {
     if (location != undefined && placement != -1){
       colleges = await College
       .find({ $or :[{ 
-        'cutOff.branch': { $in: branch},
-        'cutOff.category' : cat,
-        'cutOff.lastRank': { $gt: rank },
+        'branch': { $in: branch},
+        'category' : cat,
+        'lastrank': { $gt: rank },
         'location': { $in : location},
         'placed': { $lt : placement}
       }
     ]})
-      .sort({'ranking' : 1})
+      // .sort({'ranking' : 1})
       .exec();
     }
     else{
       if(location != undefined && placement == -1)
       {colleges = await College
       .find({ $or :[{
-        'cutOff.branch': { $in: branch},
-        'cutOff.category' : cat,
-        'cutOff.lastRank': { $gt: rank },
+        'branch': { $in: branch},
+        'category' : cat,
+        'lastrank': { $gt: rank },
         'location': { $in : location},
       }
     
@@ -112,9 +112,9 @@ app.get('/collegelist', async function(req, res) {
     if(placement != -1 && location == undefined){
       {colleges = await College
       .find({ $or :[{
-        'cutOff.branch': { $in: branch},
-        'cutOff.category' : cat,
-        'cutOff.lastRank': { $gt: rank },
+        'branch': { $in: branch},
+        'category' : cat,
+        'lastrank': { $gt: rank },
         'placed': { $lt : placement}
       }
     
@@ -128,9 +128,9 @@ app.get('/collegelist', async function(req, res) {
     if(placement == -1 && location == undefined){
       {colleges = await College
       .find({ $or :[{
-        'cutOff.branch': { $in: branch},
-        'cutOff.category' : cat,
-        'cutOff.lastRank': { $gt: rank },
+        'branch': { $in: branch},
+        'category' : cat,
+        'lastrank': { $gt: rank },
       }
     
     ]})
@@ -143,6 +143,7 @@ app.get('/collegelist', async function(req, res) {
 
     res.render('collegelist',{colleges,branches : branch});
     // console.log(colleges);
+  
     
   } catch (err) {
     console.error('Error retrieving colleges:', err);

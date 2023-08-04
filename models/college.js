@@ -9,15 +9,16 @@ const collegeSchema = new Schema({
         type: String,
         // required:true
     },
-    ranking: {
-        type: Number,
-        // required:true
-    },
-    cutOff: [{ 
+    // ranking: {
+    //     type: Number,
+    //     // required:true
+    // },
+    // cutOff: [{ 
         branch: String,
         category: String,
-        rank: Number
-    }],
+        rank: Number,
+    // }],
+
     placement: {
         type: Number,
         // required:true
@@ -49,6 +50,6 @@ const collegeSchema = new Schema({
 
 
 
-const College = mongoose.model('college details', collegeSchema);
+const College = mongoose.model('new college details', collegeSchema);
 
 module.exports = College;

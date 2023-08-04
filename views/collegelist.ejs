@@ -77,7 +77,7 @@
                                                   <div class="details-container">
                                                     <div class="collegename"> <%= college.name %></div>
                                                     <div class="collegebranch">
-                                                      <% if (Array.isArray(branches)) { %>
+                                                      <!-- <% if (Array.isArray(branches)) { %>
                                                         <% branches.forEach((branch) =>{ %>
                                                           <div class="branch">
                                                             <%= branch.toUpperCase()%>
@@ -87,7 +87,8 @@
                                                         <div class="branch">Branch :
                                                           <%= branches %>
                                                         </div>
-                                                      <% } %>
+                                                      <% } %> -->
+                                                      <%= college.branch.toUpperCase() %>
                                                     </div>
                                                   </div>
                                                   <!-- <div class="rank">LAST RANK : 11600</div> -->
