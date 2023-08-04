@@ -16,7 +16,9 @@ const collegeSchema = new Schema({
     // cutOff: [{ 
         branch: String,
         category: String,
-        rank: Number,
+        lastrank: {
+            type : Number,
+        },
     // }],
 
     placement: {

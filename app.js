@@ -91,7 +91,7 @@ app.get('/collegelist', async function(req, res) {
         'placed': { $lt : placement}
       }
     ]})
-      // .sort({'ranking' : 1})
+      .sort({'lastrank' : 1})
       .exec();
     }
     else{
@@ -105,7 +105,7 @@ app.get('/collegelist', async function(req, res) {
       }
     
     ]})
-      .sort({'ranking' : 1})
+      .sort({'lastrank' : 1})
       .exec();
     }
 
@@ -119,7 +119,7 @@ app.get('/collegelist', async function(req, res) {
       }
     
     ]})
-      .sort({'ranking' : 1})
+      .sort({'lastrank' : 1})
       .exec();
     }
 
@@ -134,7 +134,7 @@ app.get('/collegelist', async function(req, res) {
       }
     
     ]})
-      .sort({'ranking' : 1})
+      .sort({'lastrank' : 1})
       .exec();
     }
   }
