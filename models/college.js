@@ -21,7 +21,7 @@ const collegeSchema = new Schema({
         },
     // }],
 
-    placement: {
+    placed: {
         type: Number,
         // required:true
     },

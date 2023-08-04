@@ -63,6 +63,27 @@ app.post('/signup', (req, res) => {
     });
 });
 
+app.post('/add',(req,res) => {
+  const add_college = new College(req.body);
+  add_college.save()
+  .then((result) => {
+    console.log(result);
+    res.redirect('/');
+
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
+  // College.find()
+  // .then((result) => {
+  //   console.log(result);
+  // })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
+})
+
 app.get('/collegelist', async function(req, res) {
   const rank = parseInt(req.query.rank) ;
   const cat = req.query.category;
