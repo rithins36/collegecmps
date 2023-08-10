@@ -3,32 +3,28 @@ const Schema = mongoose.Schema;
 const collegeSchema = new Schema({
     name: {
         type: String,
-        // required: true
     },
+
     location: {
         type: String,
-        // required:true
     },
-    // ranking: {
-    //     type: Number,
-    //     // required:true
-    // },
-    // cutOff: [{ 
-        branch: String,
-        category: String,
-        lastrank: {
-            type : Number,
-        },
-    // }],
+
+    branch: String,
+
+    category: String,
+
+    lastrank: {
+        type : Number,
+    },
 
     placed: {
         type: Number,
-        // required:true
     },
+
     link : {
         type: String,
-        // required:true
     }
+
 }, { timestamps: true });
 
 // const userSchema = new Schema({

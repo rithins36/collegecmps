@@ -162,7 +162,7 @@ app.get('/collegelist', async function(req, res) {
 }
    
 
-    res.render('collegelist',{colleges,branches : branch});
+    res.render('collegelist',{colleges});
     // console.log(colleges);
   
     
