@@ -15,7 +15,7 @@ const userSchema = new Schema({
         // required:true
     },
     number: {   
-        type: Number,
+        type: String,
         // required:true
     }
 }, { timestamps: true });
