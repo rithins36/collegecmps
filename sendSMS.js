@@ -39,7 +39,7 @@ async function main() {
 
     const phoneNumbers = await collection.distinct('number');
     for (const phoneNumber of phoneNumbers) {
-      const message = 'Hi Rahul...sugamano?';
+      const message = 'Dear College Compass User, This message is to notify that " FIRST PHASE ALLOTMENT " has been published.';
       await sendSMS(phoneNumber, message);
     }
   } catch (error) {
