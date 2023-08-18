@@ -44,6 +44,7 @@ app.get('/contact',(req,res) => {
 
 app.post('/signup', (req, res) => {
   const user = new User(req.body);
+  console.log(user);
   user.save()
   .then((result) => {
     console.log(result);
@@ -62,6 +63,25 @@ app.post('/signup', (req, res) => {
       console.log(err);
     });
 });
+
+app.get('/authentication',async function( req,res){
+  const email = req.query.email;
+  const password = req.query.password;
+  console.log(email);
+  console.log(password);
+
+  const login = await User.find({$or :[{
+    'email': email,
+    'password': password
+  }]}).exec();
+  console.log(login);
+  if(login.length > 0){
+    res.redirect('/mainpage');
+  }
+  else{
+    res.redirect('/login');
+  }
+})
 
 // app.post('/add',(req,res) => {
 //   const add_college = new College(req.body);
